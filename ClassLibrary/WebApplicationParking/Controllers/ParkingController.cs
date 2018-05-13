@@ -157,6 +157,13 @@ namespace WebApplicationParking.Controllers
         }
 
         [HttpGet]
+        public Object ParkingSpaces()
+        {
+            string str = JsonConvert.SerializeObject(new { Settings.ParkingSpace });
+            return JsonConvert.DeserializeObject<Object>(str);
+        }
+
+        [HttpGet]
         public Object Balance()
         {
             string str = JsonConvert.SerializeObject(new { parking.Balance });

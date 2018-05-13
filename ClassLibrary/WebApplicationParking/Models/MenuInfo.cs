@@ -14,6 +14,7 @@ namespace WebApplicationParking.Models
         public string CarInfo { get; private set; } = "api/Parking/CarInfo/[Carid]";
         public string FreeParkingSpaces { get; private set; } = "api/Parking/FreeParkingSpaces";
         public string BusyParkingSpaces { get; private set; } = "api/Parking/BusyParkingSpaces";
+        public string ParkingSpaces { get; private set; } = "api/Parking/ParkingSpaces";
         public string Balance { get; private set; } = "api/Transactions/Balance";
         public string TransactionHistory { get; private set; } = "api/Transactions/TransactionHistory";
         public string TransactionSum { get; private set; } = "api/Transactions/TransactionSum";
