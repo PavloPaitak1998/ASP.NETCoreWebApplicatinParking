@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using ClassLibrary;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace WebApplicationParking.Controllers
 {
@@ -15,5 +16,38 @@ namespace WebApplicationParking.Controllers
         Parking parking;
 
         public ParkingController(Parking parking) => this.parking = parking;
+
+        [HttpPost]
+        public Object AddCar([FromBody]Car car)
+        {
+            string str;
+
+            try
+            {
+                if (car.Id <= 0 || car.TypeCar == CarType.Undefined)
+                {
+                    throw new UncorrectFormatOfCar("Uncorrect format of the Car. Please input another car information");
+                }
+                parking.AddCar(car);
+            }
+            catch (UncorrectFormatOfCar e)
+            {
+                str = JsonConvert.SerializeObject(new { e.Message });
+                return JsonConvert.DeserializeObject<Object>(str);
+            }
+            catch (CarAlreadyExistException e)
+            {
+                str = JsonConvert.SerializeObject(new { e.Message });
+                return JsonConvert.DeserializeObject<Object>(str);
+            }
+            catch (FullParkingSpaces e)
+            {
+                str = JsonConvert.SerializeObject(new { e.Message });
+                return JsonConvert.DeserializeObject<Object>(str);
+            }
+
+            str = JsonConvert.SerializeObject(new { CarInfo = car, Message = "Car is Added" });
+            return JsonConvert.DeserializeObject<Object>(str);
+        }
     }
 }
