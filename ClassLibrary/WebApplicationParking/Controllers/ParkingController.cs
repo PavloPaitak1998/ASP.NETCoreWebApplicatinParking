@@ -149,6 +149,12 @@ namespace WebApplicationParking.Controllers
             return JsonConvert.DeserializeObject<Object>(str);
         }
 
+        [HttpGet]
+        public Object BusyParkingSpaces()
+        {
+            string str = JsonConvert.SerializeObject(new { parking.BusyParkingSpace });
+            return JsonConvert.DeserializeObject<Object>(str);
+        }
 
     }
 }
