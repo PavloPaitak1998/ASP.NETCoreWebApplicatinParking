@@ -30,5 +30,24 @@ namespace WebApplicationParking.Controllers
             return JsonConvert.DeserializeObject<List<Transaction>>(str);
         }
 
+        [HttpGet]
+        public Object TransactionSum()
+        {
+            string transactionSum = parking.ReadSumTransactions();
+
+            string[] array = transactionSum.Split(new string[] { "TransactionTime: ", "Sum: " }, StringSplitOptions.RemoveEmptyEntries);
+
+            string str = JsonConvert.SerializeObject(new { TransactionTime = array[0], Sum = array[1] });
+            return JsonConvert.DeserializeObject<Object>(str);
+        }
+        //public async Task<Object> TransactionSum()
+        //{
+        //    string transactionSum = await parking.ReadSumTransactions();
+
+        //    string[] array = transactionSum.Split(new string[] { "TransactionTime: ","Sum: "  },StringSplitOptions.RemoveEmptyEntries);
+
+        //    string str = JsonConvert.SerializeObject(new {TransactionTime=array[0],Sum=array[1] });
+        //    return JsonConvert.DeserializeObject<Object>(str);
+        //}
     }
 }
