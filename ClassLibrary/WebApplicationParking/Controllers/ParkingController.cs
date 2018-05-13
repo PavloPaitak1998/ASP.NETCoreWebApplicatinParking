@@ -75,5 +75,39 @@ namespace WebApplicationParking.Controllers
             return JsonConvert.DeserializeObject<Object>(str);
         }
 
+        [HttpPut("{id}")]
+        public Object RefillBalance(int id, [FromBody]string _balance)
+        {
+            string str;
+            ICar car;
+
+            try
+            {
+                double balance = double.Parse(_balance);
+
+                car = parking.Cars.Find(c => c.Id == id);
+
+                parking.RefillBalance(car, balance);
+            }
+            catch (NullReferenceException)
+            {
+                str = JsonConvert.SerializeObject(new { Message = "This Car doesn't exist, please input another Car Id!" });
+                return JsonConvert.DeserializeObject<Object>(str);
+            }
+            catch (FormatException)
+            {
+                str = JsonConvert.SerializeObject(new { Message = "Uncorrect format of data, please input again!" });
+                return JsonConvert.DeserializeObject<Object>(str);
+            }
+            catch (ArgumentNullException)
+            {
+                str = JsonConvert.SerializeObject(new { Message = "Uncorrect format of data, please input again!" });
+                return JsonConvert.DeserializeObject<Object>(str);
+            }
+
+            str = JsonConvert.SerializeObject(new { CarInfo = (Car)car, Message = "Car balance is Refilled" });
+            return JsonConvert.DeserializeObject<Object>(str);
+        }
+
     }
 }
