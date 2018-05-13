@@ -1,0 +1,9 @@
+C:\Users\Pavlo\Desktop\ASP.NETCoreWebApplicatinParking\ClassLibrary\ClassLibrary\bin\Debug\netcoreapp2.0\ClassLibrary.deps.json
+C:\Users\Pavlo\Desktop\ASP.NETCoreWebApplicatinParking\ClassLibrary\ClassLibrary\bin\Debug\netcoreapp2.0\ClassLibrary.dll
+C:\Users\Pavlo\Desktop\ASP.NETCoreWebApplicatinParking\ClassLibrary\ClassLibrary\bin\Debug\netcoreapp2.0\ClassLibrary.pdb
+C:\Users\Pavlo\Desktop\ASP.NETCoreWebApplicatinParking\ClassLibrary\ClassLibrary\obj\Debug\netcoreapp2.0\ClassLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Pavlo\Desktop\ASP.NETCoreWebApplicatinParking\ClassLibrary\ClassLibrary\obj\Debug\netcoreapp2.0\ClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Pavlo\Desktop\ASP.NETCoreWebApplicatinParking\ClassLibrary\ClassLibrary\obj\Debug\netcoreapp2.0\ClassLibrary.AssemblyInfoInputs.cache
+C:\Users\Pavlo\Desktop\ASP.NETCoreWebApplicatinParking\ClassLibrary\ClassLibrary\obj\Debug\netcoreapp2.0\ClassLibrary.AssemblyInfo.cs
+C:\Users\Pavlo\Desktop\ASP.NETCoreWebApplicatinParking\ClassLibrary\ClassLibrary\obj\Debug\netcoreapp2.0\ClassLibrary.dll
+C:\Users\Pavlo\Desktop\ASP.NETCoreWebApplicatinParking\ClassLibrary\ClassLibrary\obj\Debug\netcoreapp2.0\ClassLibrary.pdb
