@@ -49,5 +49,31 @@ namespace WebApplicationParking.Controllers
             str = JsonConvert.SerializeObject(new { CarInfo = car, Message = "Car is Added" });
             return JsonConvert.DeserializeObject<Object>(str);
         }
+
+        [HttpDelete("{id}")]
+        public Object RemoveCar(int id)
+        {
+            string str;
+
+            var car = parking.Cars.Find(c => c.Id == id);
+            try
+            {
+                parking.RemoveCar(car);
+            }
+            catch (OutOfBalanceException e)
+            {
+                str = JsonConvert.SerializeObject(new { CarInfo = car, e.Message });
+                return JsonConvert.DeserializeObject<Object>(str);
+            }
+            catch (NullReferenceException)
+            {
+                str = JsonConvert.SerializeObject(new { Message = "This Car doesn't exist, please input another Car Id!" });
+                return JsonConvert.DeserializeObject<Object>(str);
+            }
+
+            str = JsonConvert.SerializeObject(new { CarInfo = car, Message = "Car is Removed" });
+            return JsonConvert.DeserializeObject<Object>(str);
+        }
+
     }
 }
