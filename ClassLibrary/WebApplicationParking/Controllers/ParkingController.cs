@@ -109,5 +109,13 @@ namespace WebApplicationParking.Controllers
             return JsonConvert.DeserializeObject<Object>(str);
         }
 
+        [HttpGet]
+        public List<Car> CarList()
+        {
+            string str = JsonConvert.SerializeObject(parking.Cars);
+
+            return JsonConvert.DeserializeObject<List<Car>>(str);
+        }
+
     }
 }
