@@ -117,5 +117,31 @@ namespace WebApplicationParking.Controllers
             return JsonConvert.DeserializeObject<List<Car>>(str);
         }
 
+        [HttpGet("{id}")]
+        public Object CarInfo(int id)
+        {
+            ICar car;
+            string str;
+
+            try
+            {
+                car = parking.Cars.Find(c => c.Id == id);
+
+                if (car == null)
+                {
+                    throw new CarNotExistException("This Car doesn't exist, please input another Car Id!");
+                }
+            }
+            catch (CarNotExistException e)
+            {
+                str = JsonConvert.SerializeObject(new { e.Message });
+                return JsonConvert.DeserializeObject<Object>(str);
+            }
+
+            str = JsonConvert.SerializeObject(new { CarInfo = (Car)car, Message = "Information about Car" });
+            return JsonConvert.DeserializeObject<Object>(str);
+        }
+
+
     }
 }
