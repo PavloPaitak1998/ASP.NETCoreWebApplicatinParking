@@ -49,5 +49,16 @@ namespace WebApplicationParking.Controllers
         //    string str = JsonConvert.SerializeObject(new {TransactionTime=array[0],Sum=array[1] });
         //    return JsonConvert.DeserializeObject<Object>(str);
         //}
+
+        [HttpGet("{id}")]
+        public List<Transaction> TransactionHistoryCar(int id)
+        {
+            DateTime date = DateTime.Now;
+
+            var transactions = parking.Transactions.Where(t => t.CarId == id && (date - t.TransactionTime).TotalSeconds <= 60);
+
+            string str = JsonConvert.SerializeObject(transactions);
+            return JsonConvert.DeserializeObject<List<Transaction>>(str);
+        }
     }
 }
