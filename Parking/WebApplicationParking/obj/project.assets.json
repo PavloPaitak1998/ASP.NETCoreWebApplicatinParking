@@ -13146,11 +13146,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Pavlo\\Desktop\\ASP.NETCoreWebApplicatinParking\\ClassLibrary\\WebApplicationParking\\WebApplicationParking.csproj",
+      "projectUniqueName": "C:\\Users\\Pavlo\\Desktop\\ASP.NETCoreWebApplicatinParking\\Parking\\WebApplicationParking\\WebApplicationParking.csproj",
       "projectName": "WebApplicationParking",
-      "projectPath": "C:\\Users\\Pavlo\\Desktop\\ASP.NETCoreWebApplicatinParking\\ClassLibrary\\WebApplicationParking\\WebApplicationParking.csproj",
+      "projectPath": "C:\\Users\\Pavlo\\Desktop\\ASP.NETCoreWebApplicatinParking\\Parking\\WebApplicationParking\\WebApplicationParking.csproj",
       "packagesPath": "C:\\Users\\Pavlo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Pavlo\\Desktop\\ASP.NETCoreWebApplicatinParking\\ClassLibrary\\WebApplicationParking\\obj\\",
+      "outputPath": "C:\\Users\\Pavlo\\Desktop\\ASP.NETCoreWebApplicatinParking\\Parking\\WebApplicationParking\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -13169,8 +13169,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\Pavlo\\Desktop\\ASP.NETCoreWebApplicatinParking\\ClassLibrary\\ClassLibrary\\ClassLibrary.csproj": {
-              "projectPath": "C:\\Users\\Pavlo\\Desktop\\ASP.NETCoreWebApplicatinParking\\ClassLibrary\\ClassLibrary\\ClassLibrary.csproj"
+            "C:\\Users\\Pavlo\\Desktop\\ASP.NETCoreWebApplicatinParking\\Parking\\ClassLibrary\\ClassLibrary.csproj": {
+              "projectPath": "C:\\Users\\Pavlo\\Desktop\\ASP.NETCoreWebApplicatinParking\\Parking\\ClassLibrary\\ClassLibrary.csproj"
             }
           }
         }

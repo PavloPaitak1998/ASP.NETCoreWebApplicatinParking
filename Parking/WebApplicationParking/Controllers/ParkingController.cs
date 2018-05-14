@@ -20,7 +20,7 @@ namespace WebApplicationParking.Controllers
         [HttpPost]
         public Object AddCar([FromBody]Car car)
         {
-            string str;
+            string answer;
 
             try
             {
@@ -32,28 +32,28 @@ namespace WebApplicationParking.Controllers
             }
             catch (UncorrectFormatOfCar e)
             {
-                str = JsonConvert.SerializeObject(new { e.Message });
-                return JsonConvert.DeserializeObject<Object>(str);
+                answer = JsonConvert.SerializeObject(new { e.Message });
+                return JsonConvert.DeserializeObject<Object>(answer);
             }
             catch (CarAlreadyExistException e)
             {
-                str = JsonConvert.SerializeObject(new { e.Message });
-                return JsonConvert.DeserializeObject<Object>(str);
+                answer = JsonConvert.SerializeObject(new { e.Message });
+                return JsonConvert.DeserializeObject<Object>(answer);
             }
             catch (FullParkingSpaces e)
             {
-                str = JsonConvert.SerializeObject(new { e.Message });
-                return JsonConvert.DeserializeObject<Object>(str);
+                answer = JsonConvert.SerializeObject(new { e.Message });
+                return JsonConvert.DeserializeObject<Object>(answer);
             }
 
-            str = JsonConvert.SerializeObject(new { CarInfo = car, Message = "Car is Added" });
-            return JsonConvert.DeserializeObject<Object>(str);
+            answer = JsonConvert.SerializeObject(new { CarInfo = car, Message = "Car is Added" });
+            return JsonConvert.DeserializeObject<Object>(answer);
         }
 
         [HttpDelete("{id}")]
         public Object RemoveCar(int id)
         {
-            string str;
+            string answer;
 
             var car = parking.Cars.Find(c => c.Id == id);
             try
@@ -62,23 +62,23 @@ namespace WebApplicationParking.Controllers
             }
             catch (OutOfBalanceException e)
             {
-                str = JsonConvert.SerializeObject(new { CarInfo = car, e.Message });
-                return JsonConvert.DeserializeObject<Object>(str);
+                answer = JsonConvert.SerializeObject(new { CarInfo = car, e.Message });
+                return JsonConvert.DeserializeObject<Object>(answer);
             }
             catch (NullReferenceException)
             {
-                str = JsonConvert.SerializeObject(new { Message = "This Car doesn't exist, please input another Car Id!" });
-                return JsonConvert.DeserializeObject<Object>(str);
+                answer = JsonConvert.SerializeObject(new { Message = "This Car doesn't exist, please input another Car Id!" });
+                return JsonConvert.DeserializeObject<Object>(answer);
             }
 
-            str = JsonConvert.SerializeObject(new { CarInfo = car, Message = "Car is Removed" });
-            return JsonConvert.DeserializeObject<Object>(str);
+            answer = JsonConvert.SerializeObject(new { CarInfo = car, Message = "Car is Removed" });
+            return JsonConvert.DeserializeObject<Object>(answer);
         }
 
         [HttpPut("{id}")]
         public Object RefillBalance(int id, [FromBody]string _balance)
         {
-            string str;
+            string answer;
             ICar car;
 
             try
@@ -91,37 +91,37 @@ namespace WebApplicationParking.Controllers
             }
             catch (NullReferenceException)
             {
-                str = JsonConvert.SerializeObject(new { Message = "This Car doesn't exist, please input another Car Id!" });
-                return JsonConvert.DeserializeObject<Object>(str);
+                answer = JsonConvert.SerializeObject(new { Message = "This Car doesn't exist, please input another Car Id!" });
+                return JsonConvert.DeserializeObject<Object>(answer);
             }
             catch (FormatException)
             {
-                str = JsonConvert.SerializeObject(new { Message = "Uncorrect format of data, please input again!" });
-                return JsonConvert.DeserializeObject<Object>(str);
+                answer = JsonConvert.SerializeObject(new { Message = "Uncorrect format of data, please input again!" });
+                return JsonConvert.DeserializeObject<Object>(answer);
             }
             catch (ArgumentNullException)
             {
-                str = JsonConvert.SerializeObject(new { Message = "Uncorrect format of data, please input again!" });
-                return JsonConvert.DeserializeObject<Object>(str);
+                answer = JsonConvert.SerializeObject(new { Message = "Uncorrect format of data, please input again!" });
+                return JsonConvert.DeserializeObject<Object>(answer);
             }
 
-            str = JsonConvert.SerializeObject(new { CarInfo = (Car)car, Message = "Car balance is Refilled" });
-            return JsonConvert.DeserializeObject<Object>(str);
+            answer = JsonConvert.SerializeObject(new { CarInfo = (Car)car, Message = "Car balance is Refilled" });
+            return JsonConvert.DeserializeObject<Object>(answer);
         }
 
         [HttpGet]
         public List<Car> CarList()
         {
-            string str = JsonConvert.SerializeObject(parking.Cars);
+            string answer = JsonConvert.SerializeObject(parking.Cars);
 
-            return JsonConvert.DeserializeObject<List<Car>>(str);
+            return JsonConvert.DeserializeObject<List<Car>>(answer);
         }
 
         [HttpGet("{id}")]
         public Object CarInfo(int id)
         {
             ICar car;
-            string str;
+            string answer;
 
             try
             {
@@ -134,12 +134,12 @@ namespace WebApplicationParking.Controllers
             }
             catch (CarNotExistException e)
             {
-                str = JsonConvert.SerializeObject(new { e.Message });
-                return JsonConvert.DeserializeObject<Object>(str);
+                answer = JsonConvert.SerializeObject(new { e.Message });
+                return JsonConvert.DeserializeObject<Object>(answer);
             }
 
-            str = JsonConvert.SerializeObject(new { CarInfo = (Car)car, Message = "Information about Car" });
-            return JsonConvert.DeserializeObject<Object>(str);
+            answer = JsonConvert.SerializeObject(new { CarInfo = (Car)car, Message = "Information about Car" });
+            return JsonConvert.DeserializeObject<Object>(answer);
         }
 
         [HttpGet]
@@ -152,22 +152,22 @@ namespace WebApplicationParking.Controllers
         [HttpGet]
         public Object BusyParkingSpaces()
         {
-            string str = JsonConvert.SerializeObject(new { parking.BusyParkingSpace });
-            return JsonConvert.DeserializeObject<Object>(str);
+            string answer = JsonConvert.SerializeObject(new { parking.BusyParkingSpace });
+            return JsonConvert.DeserializeObject<Object>(answer);
         }
 
         [HttpGet]
         public Object ParkingSpaces()
         {
-            string str = JsonConvert.SerializeObject(new { Settings.ParkingSpace });
-            return JsonConvert.DeserializeObject<Object>(str);
+            string answer = JsonConvert.SerializeObject(new { Settings.ParkingSpace });
+            return JsonConvert.DeserializeObject<Object>(answer);
         }
 
         [HttpGet]
         public Object Balance()
         {
-            string str = JsonConvert.SerializeObject(new { parking.Balance });
-            return JsonConvert.DeserializeObject<Object>(str);
+            string answer = JsonConvert.SerializeObject(new { parking.Balance });
+            return JsonConvert.DeserializeObject<Object>(answer);
         }
 
     }

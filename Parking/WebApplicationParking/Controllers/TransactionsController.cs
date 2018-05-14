@@ -26,8 +26,8 @@ namespace WebApplicationParking.Controllers
 
             var transactions = transact.Where(t => (date - t.TransactionTime).TotalSeconds <= 60);
 
-            string str = JsonConvert.SerializeObject(transactions);
-            return JsonConvert.DeserializeObject<List<Transaction>>(str);
+            string answer = JsonConvert.SerializeObject(transactions);
+            return JsonConvert.DeserializeObject<List<Transaction>>(answer);
         }
 
         [HttpGet]
@@ -37,8 +37,8 @@ namespace WebApplicationParking.Controllers
 
             string[] array = transactionSum.Split(new string[] { "TransactionTime: ", "Sum: " }, StringSplitOptions.RemoveEmptyEntries);
 
-            string str = JsonConvert.SerializeObject(new { TransactionTime = array[0], Sum = array[1] });
-            return JsonConvert.DeserializeObject<Object>(str);
+            string answer = JsonConvert.SerializeObject(new { TransactionTime = array[0], Sum = array[1] });
+            return JsonConvert.DeserializeObject<Object>(answer);
         }
         //public async Task<Object> TransactionSum()
         //{
@@ -57,8 +57,8 @@ namespace WebApplicationParking.Controllers
 
             var transactions = parking.Transactions.Where(t => t.CarId == id && (date - t.TransactionTime).TotalSeconds <= 60);
 
-            string str = JsonConvert.SerializeObject(transactions);
-            return JsonConvert.DeserializeObject<List<Transaction>>(str);
+            string answer = JsonConvert.SerializeObject(transactions);
+            return JsonConvert.DeserializeObject<List<Transaction>>(answer);
         }
     }
 }

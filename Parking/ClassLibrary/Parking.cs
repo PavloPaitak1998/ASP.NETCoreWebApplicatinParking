@@ -9,10 +9,12 @@ namespace ClassLibrary
 {
     public class Parking
     {
+        //key:CarId value:timer
         public static Dictionary<int, Timer> TimersDictionary = new Dictionary<int, Timer>();
-        public static Timer timerTransactions = null;
+        public static Timer timerSumTransactions = null;
 
         private readonly object locker = new object();
+        //...Transactions.GetRange(start, count)
         private int start;
         private int count;
 
@@ -59,9 +61,9 @@ namespace ClassLibrary
             Timer timer = new Timer(Charge, car, Settings.TimeOut, Settings.TimeOut);
             TimersDictionary.Add(car.Id, timer);
 
-            if (timerTransactions == null)
+            if (timerSumTransactions == null)
             {
-                timerTransactions = new Timer(WriteTransactions, null, 0, 60000);
+                timerSumTransactions = new Timer(WriteTransactions, null, 0, 60000);
             }
 
             BusyParkingSpace++;
@@ -145,7 +147,7 @@ namespace ClassLibrary
             if (BusyParkingSpace == 0)
             // Dispose Requested.  
             {
-                timerTransactions.Dispose();
+                timerSumTransactions.Dispose();
             }
 
             count = Transactions.Count - start;

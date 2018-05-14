@@ -670,11 +670,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Pavlo\\Desktop\\ASP.NETCoreWebApplicatinParking\\ClassLibrary\\ClassLibrary\\ClassLibrary.csproj",
+      "projectUniqueName": "C:\\Users\\Pavlo\\Desktop\\ASP.NETCoreWebApplicatinParking\\Parking\\ClassLibrary\\ClassLibrary.csproj",
       "projectName": "ClassLibrary",
-      "projectPath": "C:\\Users\\Pavlo\\Desktop\\ASP.NETCoreWebApplicatinParking\\ClassLibrary\\ClassLibrary\\ClassLibrary.csproj",
+      "projectPath": "C:\\Users\\Pavlo\\Desktop\\ASP.NETCoreWebApplicatinParking\\Parking\\ClassLibrary\\ClassLibrary.csproj",
       "packagesPath": "C:\\Users\\Pavlo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Pavlo\\Desktop\\ASP.NETCoreWebApplicatinParking\\ClassLibrary\\ClassLibrary\\obj\\",
+      "outputPath": "C:\\Users\\Pavlo\\Desktop\\ASP.NETCoreWebApplicatinParking\\Parking\\ClassLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
