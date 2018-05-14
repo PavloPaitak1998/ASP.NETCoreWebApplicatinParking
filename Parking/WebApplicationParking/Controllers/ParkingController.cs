@@ -24,7 +24,7 @@ namespace WebApplicationParking.Controllers
 
             try
             {
-                if (car.Id <= 0 || car.TypeCar == CarType.Undefined)
+                if (car == null||car.Id <= 0 || car.TypeCar == CarType.Undefined)
                 {
                     throw new UncorrectFormatOfCar("Uncorrect format of the Car. Please input another car information");
                 }
@@ -84,6 +84,8 @@ namespace WebApplicationParking.Controllers
             try
             {
                 double balance = double.Parse(_balance);
+                if (balance < 0)
+                    throw new FormatException();
 
                 car = parking.Cars.Find(c => c.Id == id);
 
